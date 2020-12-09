@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="application/luks">
+        <comment xml:lang="en">LUKS container file</comment>
+        <magic priority="50">
+            <match type="string" value="\x55\x4c\x53\x4b\xbe\xba" offset="0"/>
+        </magic>
+        <glob pattern="*.luks"/>
+    </mime-type>
+</mime-info>
