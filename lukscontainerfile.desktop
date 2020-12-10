@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin
-Icon=kfloppy.svg
+Icon=lukscontainerfile
 MimeType=application/luks;
 Actions=format;mount;unmount;
 Name[en_US]=LUKS container file handler
@@ -9,15 +9,15 @@ Comment[en_US]=Format / mount / unmount container file SOMETHING.luks on /mnt/SO
 
 [Desktop Action format]
 Name=Format LUKS2 container file
-Icon=kfloppy.svg
-Exec=$HOME/.local/share/kservices5/ServiceMenus/lukscontainerfile-format.sh %U
+Icon=lukscontainerfile
+Exec="$HOME/.local/share/kservices5/ServiceMenus/lukscontainerfile-format.sh" %U
 
 [Desktop Action mount]
 Name=Mount LUKS container file
 Icon=media-mount
-Exec=$HOME/.local/share/kservices5/ServiceMenus/lukscontainerfile-mount.sh %U
+Exec="$HOME/.local/share/kservices5/ServiceMenus/lukscontainerfile-mount.sh" %U
 
 [Desktop Action unmount]
 Name=Unmount LUKS container file
 Icon=media-eject
-Exec=$HOME/.local/share/kservices5/ServiceMenus/lukscontainerfile-unmount.sh %U
+Exec="$HOME/.local/share/kservices5/ServiceMenus/lukscontainerfile-unmount.sh" %U

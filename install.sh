@@ -25,6 +25,7 @@ if [ ! -d "$DESTDIR" ]; then
 fi
 
 cp lukscontainerfile.desktop "$DESTDIR"
+cp lukscontainerfile-icon48x48.png "$DESTDIR"
 cp lukscontainerfile-format.sh "$DESTDIR"
 cp lukscontainerfile-mount.sh "$DESTDIR"
 cp lukscontainerfile-unmount.sh "$DESTDIR"
@@ -36,5 +37,6 @@ chmod +x "$DESTDIR"/lukscontainerfile-*.sh
 sudo --validate
 echo "This may take 30 seconds or so; please be patient."
 sudo xdg-mime install --novendor --mode system lukscontainerfile.xml
+sudo xdg-icon-resource install --context mimetypes --novendor --size 48 --mode system "$DESTDIR"/lukscontainerfile-icon48x48.png lukscontainerfile
 
 echo "Success !"

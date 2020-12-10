@@ -4,13 +4,15 @@ This is a "Service Menu" extension for KDE's Dolphin file manager, to handle LUK
 
 Dolphin has native features to handle LUKS-encrypted volumes (disks, partitions), but not to handle LUKS-encrypted container files.
 
-This extension creates LUKS2 container files with Btrfs filesystem inside, and mounts/unmounts LUKS container files. The mount/unmount should work regardless of the container's LUKS version or type of filesystem inside.
+This extension creates LUKS2 container files with Btrfs filesystem inside, and mounts/unmounts LUKS container files. The mount/unmount should work regardless of the container's LUKS version or type of filesystem inside.  So you could create a LUKS container file manually if you wished, and still use the mount/unmount actions of this extension.
 
 You must have "sudo" permission to use this extension.
 
-This software works on Linux only, not any other platform where KDE runs.
+This software works on Linux only, not any other platform where Dolphin runs.
 
 Created 2020 by Bill Dietrich ([bill@billdietrich.me](bill@billdietrich.me), [https://www.billdietrich.me](https://www.billdietrich.me))
+
+Source code is at [https://github.com/BillDietrich/lukscontainerfile](https://github.com/BillDietrich/lukscontainerfile)
 
 
 ## Pre-Installation
@@ -20,13 +22,14 @@ You must have Dolphin file manager and X desktop utilities and Btrfs:
 ```
 dolphin --version
 xdg-mime --version
-btrfs --version
+btrfs --version			# if this fails, install "btrfs-progs"
 ```
 
 
 ## Install
 
 ```
+# copy the files to your disk, then:
 chmod +x install.sh
 ./install.sh
 ```
@@ -92,12 +95,16 @@ To use the context menu items:
 ### 1.0.0 (12/2020)
 * Tested only on Kubuntu 20.10 with Dolphin 20.08.2.
 
+### 1.1.0 (12/2020)
+* Tweaked README.
+* New icon for extension and format action.
+* Fixed icon-setting in MIME database.
+
 ### To-Do / Quirks
 * Mkfs hangs if less than 109 MB, but I'm using --mixed, why ?
-* More graceful way to create container file ?  Put in New sub-menu ?
+* More graceful way to create container file ?  Put in New sub-menu ?  Combine new and format into one menu item "new" ?
 * Better error-handling.
 * I think ~/.local/share/kservices5/ServiceMenus is not the only place where Service Menus can be stored.  Maybe just always using that place is good enough ?
-* Better icon for format ?
 
 
 ## Privacy Policy

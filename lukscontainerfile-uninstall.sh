@@ -15,8 +15,10 @@ DESTDIR="$HOME/.local/share/kservices5/ServiceMenus"
 sudo --validate
 echo "This may take 30 seconds or so; please be patient."
 sudo xdg-mime uninstall --mode system "$DESTDIR/lukscontainerfile.xml"
+sudo xdg-icon-resource uninstall --context mimetypes --size 48 --mode system lukscontainerfile
 
 rm "$DESTDIR/lukscontainerfile.desktop"
+rm "$DESTDIR/lukscontainerfile-icon48x48.png"
 rm "$DESTDIR/lukscontainerfile-format.sh"
 rm "$DESTDIR/lukscontainerfile-mount.sh"
 rm "$DESTDIR/lukscontainerfile-unmount.sh"

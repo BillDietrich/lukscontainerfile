@@ -6,5 +6,6 @@
             <match type="string" value="\x55\x4c\x53\x4b\xbe\xba" offset="0"/>
         </magic>
         <glob pattern="*.luks"/>
+        <icon name="lukscontainerfile"/>
     </mime-type>
 </mime-info>
