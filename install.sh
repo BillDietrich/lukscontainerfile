@@ -10,33 +10,50 @@ set -o nounset
 
 echo "Installing the Dolphin service menu 'lukscontainerfile':"
 
-DESTDIR="$HOME/.local/share/kservices5/ServiceMenus"
+DESTDIR="/usr/share/kservices5/ServiceMenus"
+DESTDIRT="/usr/share/templates"
 
 DESTDIR1=`dirname "$DESTDIR"`
 
+sudo --validate
+
 # if kservices5 doesn't exist, make it
 if [ ! -d "$DESTDIR1" ]; then
-  mkdir "$DESTDIR1"
+  sudo mkdir "$DESTDIR1"
+  sudo chown root:root "$DESTDIR1"
+  sudo chmod 755 "$DESTDIR1"
 fi
 
 # if ServiceMenus doesn't exist, make it
 if [ ! -d "$DESTDIR" ]; then
-  mkdir "$DESTDIR"
+  sudo mkdir "$DESTDIR"
+  sudo chown root:root "$DESTDIR"
+  sudo chmod 755 "$DESTDIR"
 fi
 
-cp lukscontainerfile.desktop "$DESTDIR"
-cp lukscontainerfile-icon48x48.png "$DESTDIR"
-cp lukscontainerfile-format.sh "$DESTDIR"
-cp lukscontainerfile-mount.sh "$DESTDIR"
-cp lukscontainerfile-unmount.sh "$DESTDIR"
-cp lukscontainerfile-uninstall.sh "$DESTDIR"
-cp lukscontainerfile.xml "$DESTDIR"
+# if templates doesn't exist, make it
+if [ ! -d "$DESTDIRT" ]; then
+  sudo mkdir "$DESTDIRT"
+  sudo chown root:root "$DESTDIRT"
+  sudo chmod 755 "$DESTDIRT"
+  sudo mkdir "$DESTDIRT"/.source
+  sudo chown root:root "$DESTDIRT"
+  sudo chmod 755 "$DESTDIRT"
+fi
 
-chmod +x "$DESTDIR"/lukscontainerfile-*.sh
+sudo cp lukscontainerfile.desktop "$DESTDIR"
+sudo cp lukscontainerfile-format.sh "$DESTDIR"
+sudo cp lukscontainerfile-mount.sh "$DESTDIR"
+sudo cp lukscontainerfile-unmount.sh "$DESTDIR"
+sudo cp lukscontainerfile-uninstall.sh "$DESTDIR"
+sudo cp lukscontainerfile.xml "$DESTDIR"
+sudo cp lukscontainerfilenew.desktop "$DESTDIRT"
+sudo cp lukscontainerfile.luks "$DESTDIRT"/.source/lukscontainerfile.luks
 
-sudo --validate
+sudo chmod +x "$DESTDIR"/lukscontainerfile-*.sh
+
 echo "This may take 30 seconds or so; please be patient."
 sudo xdg-mime install --novendor --mode system lukscontainerfile.xml
-sudo xdg-icon-resource install --context mimetypes --novendor --size 48 --mode system "$DESTDIR"/lukscontainerfile-icon48x48.png lukscontainerfile
+sudo xdg-icon-resource install --context mimetypes --novendor --size 48 --mode system lukscontainerfile-icon48x48.png lukscontainerfile
 
 echo "Success !"

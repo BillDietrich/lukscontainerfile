@@ -1,0 +1,11 @@
+# lukscontainerfilenew.desktop
+# Defines the Dolphin template "lukscontainerfilenew", which
+# creates an empty file that can be formatted into a LUKS container file.
+
+[Desktop Entry]
+Type=Link
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+Icon=lukscontainerfile
+URL=.source/lukscontainerfile.luks
+Name[en_US]=LUKS container file...
+Comment[en_US]=Makes an empty file that can then be formatted as a LUKS container file.

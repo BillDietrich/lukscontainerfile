@@ -4,30 +4,60 @@
 # This file must have execute permission set.
 # Argument is container file full pathname.
 
-set -o errexit
+#set -o errexit
 set -o nounset
 
 FULLFILENAME=$1
 BASENAME=`basename "$FULLFILENAME" ".luks"`
+TITLE="Mount LUKS Container '$BASENAME'"
 
-USERPASSWD=`kdialog --title "Mount LUKS Container File $BASENAME" --password "Mounting requires SUDO access.  Enter your password: "`
+USERPASSWD=`kdialog --title "$TITLE" --password "Mounting requires SUDO access.  Enter your password: "`
+RETVAL=$?
+
+if [ $RETVAL != "0" ]; then
+	exit $RETVAL
+fi
 
 echo "$USERPASSWD" | sudo --stdin --validate
+RETVAL=$?
 USERPASSWD=""
 
-CONTAINERPASSWD=`kdialog --title "Mount LUKS Container File $BASENAME" --password "Enter passphrase for container $BASENAME: "`
+if [ $RETVAL != "0" ]; then
+	kdialog --title "$TITLE" --error "Sudo failed (exit code $RETVAL)."
+	exit $RETVAL
+fi
+
+CONTAINERPASSWD=`kdialog --title "$TITLE" --password "Enter passphrase for container '$BASENAME': "`
+RETVAL=$?
+
+if [ $RETVAL != "0" ]; then
+	exit $RETVAL
+fi
+
 touch lukscontainerfile.tmp
 chmod 600 lukscontainerfile.tmp
 echo -n "$CONTAINERPASSWD" >lukscontainerfile.tmp
 
 sudo cryptsetup luksOpen --key-file lukscontainerfile.tmp "$FULLFILENAME" "$BASENAME"
+RETVAL=$?
 
 rm lukscontainerfile.tmp
 
+if [ $RETVAL != "0" ]; then
+	kdialog --title "$TITLE" --error "Decryption failed (exit code $RETVAL)."
+	exit $RETVAL
+fi
+
 sudo mount -o defaults,noatime "/dev/mapper/$BASENAME" "/mnt/$BASENAME"
+RETVAL=$?
+
+if [ $RETVAL != "0" ]; then
+	kdialog --title "$TITLE" --error "Filesystem mount failed (exit code $RETVAL)."
+	exit $RETVAL
+fi
 
 sudo chown "$USER" "/mnt/$BASENAME"
 
 sudo chmod 700 "/mnt/$BASENAME"
 
-kdialog --title "Mount LUKS Container File $BASENAME" --msgbox "Success !  Container $BASENAME has been mounted."
+kdialog --title "$TITLE" --msgbox "Success !  Container '$BASENAME' has been mounted."

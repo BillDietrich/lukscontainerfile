@@ -1,3 +1,7 @@
+# lukscontainerfile.desktop
+# Defines the Dolphin service menu "lukscontainerfile", which
+# formats, mounts, and unmounts LUKS container files.
+
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin
@@ -5,19 +9,19 @@ Icon=lukscontainerfile
 MimeType=application/luks;
 Actions=format;mount;unmount;
 Name[en_US]=LUKS container file handler
-Comment[en_US]=Format / mount / unmount container file SOMETHING.luks on /mnt/SOMETHING. Format makes a LUKS2 container with a Btrfs filesystem (mixed mode) inside, and creates a backup of the LUKS header.
+Comment[en_US]=Mount / unmount container file SOMETHING.luks on /mnt/SOMETHING.
 
 [Desktop Action format]
-Name=Format LUKS2 container file
+Name=Format LUKS2 container file...
 Icon=lukscontainerfile
-Exec="$HOME/.local/share/kservices5/ServiceMenus/lukscontainerfile-format.sh" %U
+Exec="/usr/share/kservices5/ServiceMenus/lukscontainerfile-format.sh" %U
 
 [Desktop Action mount]
-Name=Mount LUKS container file
+Name=Mount LUKS container file...
 Icon=media-mount
-Exec="$HOME/.local/share/kservices5/ServiceMenus/lukscontainerfile-mount.sh" %U
+Exec="/usr/share/kservices5/ServiceMenus/lukscontainerfile-mount.sh" %U
 
 [Desktop Action unmount]
-Name=Unmount LUKS container file
+Name=Unmount LUKS container file...
 Icon=media-eject
-Exec="$HOME/.local/share/kservices5/ServiceMenus/lukscontainerfile-unmount.sh" %U
+Exec="/usr/share/kservices5/ServiceMenus/lukscontainerfile-unmount.sh" %U
