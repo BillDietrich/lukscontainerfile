@@ -8,4 +8,4 @@ X-KDE-ServiceTypes=KonqPopupMenu/Plugin
 Icon=lukscontainerfile
 URL=.source/lukscontainerfile.luks
 Name[en_US]=LUKS container file...
-Comment[en_US]=Makes an empty file that can then be formatted as a LUKS container file.
+Comment[en_US]=Specify new file's name (16 chars max, alphanum only) with or without '.luks' extension.
