@@ -6,7 +6,7 @@
 # This file must have execute permission set.
 # Also called with "--remove" parameter to do uninstall.
 
-if [ $# -gt 0 ] && [ "$1" = '--remove' ] then
+if [ $# -gt 0 ] && [ "$1" = '--remove' ]; then
   ./lukscontainerfile-uninstall.sh
   RETVAL=$?
   exit $RETVAL

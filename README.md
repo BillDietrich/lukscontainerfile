@@ -107,6 +107,9 @@ To use the context menu items:
 ### 1.5.0 (2/2021)
 * Fixed uninstall.
 
+### 1.6.0 (2/2021)
+* Fixed typo in install.
+
 ### To-Do / Quirks
 * Would be nice to make dialogs wider or narrower in various cases, or control line-breaks in text, but no way to do it.
 * Time-limit on success dialogs for mount and unmount.
