@@ -104,8 +104,10 @@ To use the context menu items:
 * Added error message if creating mountpoint fails.
 * In mount, if mountpoint doesn't exist, create it.
 
+### 1.5.0 (2/2021)
+* Fixed uninstall.
+
 ### To-Do / Quirks
-* Uninstall through Dolphin fails; instead of lukscontainerfile-uninstall.sh, Dolphin calls install.sh with --remove option.
 * Would be nice to make dialogs wider or narrower in various cases, or control line-breaks in text, but no way to do it.
 * Time-limit on success dialogs for mount and unmount.
 
@@ -135,7 +137,7 @@ To use the context menu items:
 
 	```git commit -m "MESSAGE"```
 
-	```git push -u origin master```
+	```git push -u origin main```
 
 7. Make .zip file (skip the lukscontainerfile-icon464x464.svg file):
 

@@ -4,6 +4,13 @@
 # Installs the Dolphin service menu "lukscontainerfile", which
 # formats, mounts, and unmounts LUKS container files.
 # This file must have execute permission set.
+# Also called with "--remove" parameter to do uninstall.
+
+if [ $# -gt 0 ] && [ "$1" = '--remove' ] then
+  ./lukscontainerfile-uninstall.sh
+  RETVAL=$?
+  exit $RETVAL
+fi
 
 set -o errexit
 set -o nounset
