@@ -105,6 +105,7 @@ To use the context menu items:
 * In mount, if mountpoint doesn't exist, create it.
 
 ### To-Do / Quirks
+* Uninstall through Dolphin fails; instead of lukscontainerfile-uninstall.sh, Dolphin calls install.sh with --remove option.
 * Would be nice to make dialogs wider or narrower in various cases, or control line-breaks in text, but no way to do it.
 * Time-limit on success dialogs for mount and unmount.
 
@@ -158,13 +159,19 @@ To use the context menu items:
 
 9. Test the official files as a normal user would get them:
 
-	In Dolphin, remove use of the LUKSContainer service menu.
+	Might have to reboot, or wait a day or two, for new files to appear through Store.
+
+	In Dolphin, remove use of the LUKSContainer service menu (Configure Dolphin / Services / Download Services / search for luks / Uninstall).
+
+	Make sure files are gone:
+
+	```ls -l /usr/share/kservices5/ServiceMenus/```
 
 	To remove files installed the local way, run:
 
 	```/usr/share/kservices5/ServiceMenus/lukscontainerfile-uninstall.sh```
 
-	In Dolphin, download and install the LUKSContainer service menu the standard way.
+	In Dolphin, download and install the LUKSContainer service menu the standard way (Configure Dolphin / Services / Download Services / search for luks / Install).
 
 	Test again.
 
