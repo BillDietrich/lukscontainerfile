@@ -100,8 +100,73 @@ To use the context menu items:
 * Added choice of filesystem type.
 * Figured out proper minimum file size for each filesystem type.
 
+### 1.4.0 (2/2021)
+* Added error message if creating mountpoint fails.
+* In mount, if mountpoint doesn't exist, create it.
+
 ### To-Do / Quirks
 * Would be nice to make dialogs wider or narrower in various cases, or control line-breaks in text, but no way to do it.
+* Time-limit on success dialogs for mount and unmount.
+
+## Development
+
+### How to make changes
+
+1. To see path to services on your system, run:
+
+	```kf5-config --path services```
+
+2. To remove files installed the official way, run:
+
+	```/usr/share/kservices5/ServiceMenus/lukscontainerfile-uninstall.sh```
+
+3. In project dir, make changes to source files.
+
+4. To make new files usable in Dolphin, in project dir, run:
+
+	```./install.sh```
+
+5. In Dolphin, test the service menu, creating and mounting and unmounting LUKS container volumes.
+
+6. After tests pass, push changes up to GitHub:
+
+	```git add *.md *.sh *.desktop *.xml *.png *.luks```
+
+	```git commit -m "MESSAGE"```
+
+	```git push -u origin master```
+
+7. Make .zip file (skip the lukscontainerfile-icon464x464.svg file):
+
+	```rm *.zip```
+
+	```zip lukscontainerfile.zip *.md *.sh *.desktop *.xml *.png *.luks```
+
+8. Update KDE Store:
+
+	Go to [https://store.kde.org/p/1457378](https://store.kde.org/p/1457378)
+
+	Log in.
+
+	Click on "Edit Product" near top.
+
+	On first page, update version number.  Next to git, Next to Files.
+
+	Drag and drop new .zip file into file section, update version and description, click Next to changelog.
+
+	Add changelog info, click Save.
+
+9. Test the official files as a normal user would get them:
+
+	In Dolphin, remove use of the LUKSContainer service menu.
+
+	To remove files installed the local way, run:
+
+	```/usr/share/kservices5/ServiceMenus/lukscontainerfile-uninstall.sh```
+
+	In Dolphin, download and install the LUKSContainer service menu the standard way.
+
+	Test again.
 
 
 ## Privacy Policy

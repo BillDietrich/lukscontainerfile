@@ -140,6 +140,12 @@ sudo cryptsetup luksClose "$BASENAME"
 
 if [ ! -d "/mnt/$BASENAME" ]; then
 	sudo mkdir "/mnt/$BASENAME"
+	RETVAL=$?
+
+	if [ $RETVAL != "0" ]; then
+		kdialog --title "$TITLE" --error "Making mountpoint '/mnt/$BASENAME' failed (exit code $RETVAL)."
+		exit $RETVAL
+	fi
 fi
 
 sudo chown "$USER" "/mnt/$BASENAME"

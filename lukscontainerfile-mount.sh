@@ -48,6 +48,16 @@ if [ $RETVAL != "0" ]; then
 	exit $RETVAL
 fi
 
+if [ ! -d "/mnt/$BASENAME" ]; then
+	sudo mkdir "/mnt/$BASENAME"
+	RETVAL=$?
+
+	if [ $RETVAL != "0" ]; then
+		kdialog --title "$TITLE" --error "Making mountpoint '/mnt/$BASENAME' failed (exit code $RETVAL)."
+		exit $RETVAL
+	fi
+fi
+
 sudo mount -o defaults,noatime "/dev/mapper/$BASENAME" "/mnt/$BASENAME"
 RETVAL=$?
 
