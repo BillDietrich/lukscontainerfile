@@ -113,6 +113,9 @@ To use the context menu items:
 ### 1.7.0 (2/2021)
 * Tried yet again to fix uninstall.
 
+### 1.8.0 (2/2021)
+* Tried yet again to fix uninstall.
+
 ### To-Do / Quirks
 * Would be nice to make dialogs wider or narrower in various cases, or control line-breaks in text, but no way to do it.
 * Time-limit on success dialogs for mount and unmount.
@@ -174,6 +177,8 @@ To use the context menu items:
 	Make sure files are gone:
 
 	```ls -l /usr/share/kservices5/ServiceMenus/```
+
+	```ls -l ~/.local/share/servicemenu-download/```
 
 	To remove files installed the local way, run:
 

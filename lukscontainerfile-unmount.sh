@@ -44,3 +44,5 @@ if [ $RETVAL != "0" ]; then
 fi
 
 kdialog --title "$TITLE" --msgbox "Success !  Container '$BASENAME' has been unmounted."
+
+exit 0

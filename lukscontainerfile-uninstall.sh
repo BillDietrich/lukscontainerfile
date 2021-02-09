@@ -29,3 +29,5 @@ sudo rm "$DESTDIRT/lukscontainerfilenew.desktop"
 sudo rm "$DESTDIRT"/.source/lukscontainerfile.luks
 
 echo "Success !"
+
+exit 0

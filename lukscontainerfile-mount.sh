@@ -71,3 +71,5 @@ sudo chown "$USER" "/mnt/$BASENAME"
 sudo chmod 700 "/mnt/$BASENAME"
 
 kdialog --title "$TITLE" --msgbox "Success !  Container '$BASENAME' has been mounted."
+
+exit 0

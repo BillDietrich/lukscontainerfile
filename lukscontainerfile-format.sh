@@ -155,3 +155,5 @@ sudo chmod 700 "/mnt/$BASENAME"
 qdbus $dbusRef close
 
 kdialog --title "$TITLE" --msgbox "Success !  LUKS2 container '$BASENAME' has been formatted with a filesystem.  Now you can mount it.  And perhaps save file '$FULLFILENAME.HeaderBackup' somewhere safe."
+
+exit 0
