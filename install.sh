@@ -6,8 +6,13 @@
 # This file must have execute permission set.
 # Also called with "--remove" parameter to do uninstall.
 
+DESTDIR="/usr/share/kservices5/ServiceMenus"
+DESTDIRT="/usr/share/templates"
+
+DESTDIR1=`dirname "$DESTDIR"`
+
 if [ $# -gt 0 ] && [ "$1" = '--remove' ]; then
-  ./lukscontainerfile-uninstall.sh
+  "$DESTDIR"/lukscontainerfile-uninstall.sh
   RETVAL=$?
   exit $RETVAL
 fi
@@ -16,11 +21,6 @@ set -o errexit
 set -o nounset
 
 echo "Installing the Dolphin service menu 'lukscontainerfile':"
-
-DESTDIR="/usr/share/kservices5/ServiceMenus"
-DESTDIRT="/usr/share/templates"
-
-DESTDIR1=`dirname "$DESTDIR"`
 
 sudo --validate
 
