@@ -9,19 +9,24 @@ Icon=lukscontainerfile
 MimeType=application/luks;
 Actions=format;mount;unmount;
 Name[en_US]=LUKS container file handler
+Name[nl]=LUKS-containerbestanden
 Comment[en_US]=Mount / unmount container file SOMETHING.luks on /mnt/SOMETHING.
+Comment[nl]=Koppel containerbestanden IETS.luks aan/af op/van /mnt/IETS.
 
 [Desktop Action format]
 Name=Format LUKS2 container file...
+Name[nl]=LUKS2-containerbestand formatteren…
 Icon=lukscontainerfile
 Exec="/usr/share/kservices5/ServiceMenus/lukscontainerfile-format.sh" %U
 
 [Desktop Action mount]
 Name=Mount LUKS container file...
+Name[nl]=LUKS-containerbestand aankoppelen…
 Icon=media-mount
 Exec="/usr/share/kservices5/ServiceMenus/lukscontainerfile-mount.sh" %U
 
 [Desktop Action unmount]
 Name=Unmount LUKS container file...
+Name[nl]=LUKS-containerbestand afkoppelen…
 Icon=media-eject
 Exec="/usr/share/kservices5/ServiceMenus/lukscontainerfile-unmount.sh" %U

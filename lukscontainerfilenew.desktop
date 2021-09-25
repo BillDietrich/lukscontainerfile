@@ -8,4 +8,6 @@ X-KDE-ServiceTypes=KonqPopupMenu/Plugin
 Icon=lukscontainerfile
 URL=.source/lukscontainerfile.luks
 Name[en_US]=LUKS container file...
+Name[nl]=LUKS-containerbestand…
 Comment[en_US]=Specify new file's name (16 chars max, alphanum only) with or without '.luks' extension.
+Comment[nl]=Geef het bestand een nieuwe naam (max. 16 alfanumerieke tekens), met of zonder de ‘.luks’-bestandsextensie.
